@@ -5,7 +5,7 @@ from playwright.sync_api import sync_playwright
 def setupPlaywright(context):
     # -- SETUP-FIXTURE PART:
     playwright = sync_playwright().start()
-    browser = playwright.chromium.launch(headless=True, slow_mo=0, timeout=20000)
+    browser = playwright.chromium.launch(headless=False, slow_mo=1000, timeout=20000)
     browserContext = browser.new_context()
     context.page = browserContext.new_page()
     yield context.page
